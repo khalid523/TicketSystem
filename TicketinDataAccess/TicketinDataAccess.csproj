@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B481357-531C-475F-AF98-77812799AC78}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TicketinDataAccess</RootNamespace>
+    <AssemblyName>TicketinDataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Entity\data\Client.cs" />
+    <Compile Include="Entity\data\Department.cs" />
+    <Compile Include="Entity\data\Employee.cs" />
+    <Compile Include="Entity\data\History.cs" />
+    <Compile Include="Entity\data\login.cs" />
+    <Compile Include="Entity\data\LookupStatus.cs" />
+    <Compile Include="Entity\data\permissions.cs" />
+    <Compile Include="Entity\data\Permission_UserRole.cs" />
+    <Compile Include="Entity\data\ProjectMember.cs" />
+    <Compile Include="Entity\data\Projects.cs" />
+    <Compile Include="Entity\data\Role.cs" />
+    <Compile Include="Entity\data\TicketinContext.cs" />
+    <Compile Include="Entity\data\Tickets.cs" />
+    <Compile Include="Entity\data\UserRole.cs" />
+    <Compile Include="Entity\data\Users.cs" />
+    <Compile Include="Migrations\202208011006320_ff.cs" />
+    <Compile Include="Migrations\202208011006320_ff.designer.cs">
+      <DependentUpon>202208011006320_ff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208030611102_addTableHistory.cs" />
+    <Compile Include="Migrations\202208030611102_addTableHistory.designer.cs">
+      <DependentUpon>202208030611102_addTableHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208031127541_dddddd.cs" />
+    <Compile Include="Migrations\202208031127541_dddddd.designer.cs">
+      <DependentUpon>202208031127541_dddddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208031132432_dddsadas.cs" />
+    <Compile Include="Migrations\202208031132432_dddsadas.designer.cs">
+      <DependentUpon>202208031132432_dddsadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208031350125_ddeswq.cs" />
+    <Compile Include="Migrations\202208031350125_ddeswq.designer.cs">
+      <DependentUpon>202208031350125_ddeswq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208040530269_gtgfr.cs" />
+    <Compile Include="Migrations\202208040530269_gtgfr.designer.cs">
+      <DependentUpon>202208040530269_gtgfr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208040850435_qppl.cs" />
+    <Compile Include="Migrations\202208040850435_qppl.designer.cs">
+      <DependentUpon>202208040850435_qppl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208040903045_ijhnbv.cs" />
+    <Compile Include="Migrations\202208040903045_ijhnbv.designer.cs">
+      <DependentUpon>202208040903045_ijhnbv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208041128548_aqaz.cs" />
+    <Compile Include="Migrations\202208041128548_aqaz.designer.cs">
+      <DependentUpon>202208041128548_aqaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208041203137_qwertyuiop.cs" />
+    <Compile Include="Migrations\202208041203137_qwertyuiop.designer.cs">
+      <DependentUpon>202208041203137_qwertyuiop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208070543591_qazaq.cs" />
+    <Compile Include="Migrations\202208070543591_qazaq.designer.cs">
+      <DependentUpon>202208070543591_qazaq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208070648191_xzaqq.cs" />
+    <Compile Include="Migrations\202208070648191_xzaqq.designer.cs">
+      <DependentUpon>202208070648191_xzaqq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208070732379_bnmvcx.cs" />
+    <Compile Include="Migrations\202208070732379_bnmvcx.designer.cs">
+      <DependentUpon>202208070732379_bnmvcx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208070802465_qazas.cs" />
+    <Compile Include="Migrations\202208070802465_qazas.designer.cs">
+      <DependentUpon>202208070802465_qazas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208160817132_aaaaa.cs" />
+    <Compile Include="Migrations\202208160817132_aaaaa.designer.cs">
+      <DependentUpon>202208160817132_aaaaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208230600330_qaz.cs" />
+    <Compile Include="Migrations\202208230600330_qaz.designer.cs">
+      <DependentUpon>202208230600330_qaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208300733027_adadq.cs" />
+    <Compile Include="Migrations\202208300733027_adadq.designer.cs">
+      <DependentUpon>202208300733027_adadq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepostitoryPermission_UserRole.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IRepositoryClient.cs" />
+    <Compile Include="Repository\IRepositoryEmpolyee.cs" />
+    <Compile Include="Repository\IRepositoryHistory.cs" />
+    <Compile Include="Repository\IRepositoryPM.cs" />
+    <Compile Include="Repository\IRepositoryProject.cs" />
+    <Compile Include="Repository\IRepositoryTickets.cs" />
+    <Compile Include="Repository\IRepositoryUser.cs" />
+    <Compile Include="Repository\RepostitoryPermission_UserRole.cs" />
+    <Compile Include="Repository\RepositoryHistory.cs" />
+    <Compile Include="Repository\RepositoryPM.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\RepositoryClient.cs" />
+    <Compile Include="Repository\RepositoryEmpolyee.cs" />
+    <Compile Include="Repository\RepositoryProject.cs" />
+    <Compile Include="Repository\RepositoryTickets.cs" />
+    <Compile Include="Repository\RepositoryUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.0.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202208011006320_ff.resx">
+      <DependentUpon>202208011006320_ff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208030611102_addTableHistory.resx">
+      <DependentUpon>202208030611102_addTableHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208031127541_dddddd.resx">
+      <DependentUpon>202208031127541_dddddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208031132432_dddsadas.resx">
+      <DependentUpon>202208031132432_dddsadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208031350125_ddeswq.resx">
+      <DependentUpon>202208031350125_ddeswq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208040530269_gtgfr.resx">
+      <DependentUpon>202208040530269_gtgfr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208040850435_qppl.resx">
+      <DependentUpon>202208040850435_qppl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208040903045_ijhnbv.resx">
+      <DependentUpon>202208040903045_ijhnbv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208041128548_aqaz.resx">
+      <DependentUpon>202208041128548_aqaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208041203137_qwertyuiop.resx">
+      <DependentUpon>202208041203137_qwertyuiop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208070543591_qazaq.resx">
+      <DependentUpon>202208070543591_qazaq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208070648191_xzaqq.resx">
+      <DependentUpon>202208070648191_xzaqq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208070732379_bnmvcx.resx">
+      <DependentUpon>202208070732379_bnmvcx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208070802465_qazas.resx">
+      <DependentUpon>202208070802465_qazas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208160817132_aaaaa.resx">
+      <DependentUpon>202208160817132_aaaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208230600330_qaz.resx">
+      <DependentUpon>202208230600330_qaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208300733027_adadq.resx">
+      <DependentUpon>202208300733027_adadq.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Scripts\jquery-2.0.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.0.js" />
+    <Content Include="Scripts\jquery-2.0.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

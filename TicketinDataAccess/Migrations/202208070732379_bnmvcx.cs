@@ -1,0 +1,18 @@
+﻿namespace TicketinDataAccess.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class bnmvcx : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Tickets", "EscLeader", c => c.Boolean(nullable: false));
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Tickets", "EscLeader");
+        }
+    }
+}

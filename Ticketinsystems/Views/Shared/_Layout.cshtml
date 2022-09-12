@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-ui-1.13.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.13.2.js"></script>*@
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+
+
+                        if (User.IsInRole("addTicket"))
+                        {
+                            <li style="margin-left: -39px;">@Html.ActionLink("Tickets", "Index", "Tickets")</li>
+                            <li>@Html.ActionLink("UserArea", "UserArea", "Home")</li>
+
+                            <li style="margin-top: 16px; float: right; margin-right: 29px; color: white; margin-left: 599px; ">Welcome @User.Identity.Name</li>
+                        }
+
+                        if (User.IsInRole("AddEmployee"))
+                        {
+                            <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                            <li>@Html.ActionLink("Department", "Index1", "Department")</li>
+                            <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
+                            <li>@Html.ActionLink("Client", "Index", "Client")</li>
+
+                            <li>@Html.ActionLink("Tickets", "Index", "Tickets")</li>
+                            <li>@Html.ActionLink("Project", "Index1", "Project")</li>
+                            <li>@Html.ActionLink("UserRole", "Index", "UserRole")</li>
+
+                            <li>@Html.ActionLink("AdminArea", "AdminArea", "Home")</li>
+                            <li style="color: white; float: right; margin-top: 14px; margin-left: 19px;">Welcome @User.Identity.Name</li>
+                        }
+
+
+
+                        if (User.IsInRole("EditTicket"))
+                        {
+                            <li style="margin-left: -44px;">@Html.ActionLink("Tickets", "Index", "Tickets")</li>
+                            <li style=" float: right; margin-right: 29px; background-color: white; margin-top: 14px; margin-left: 709px; ">Welcome @User.Identity.Name</li>
+
+
+                            var y = TempData["IdladerForPA"];
+                            var t = TempData["IDLeader"];
+                         
+                            if (y != null)
+                            {
+
+                                if ((bool)t == true && y != null)
+                                {
+
+                                    <li style=" color: white; float: right; margin-top: 16px;" class="glyphicon glyphicon-comment">
+                                        <a style="margin-bottom: -40px; margin-top: -35px; margin-left: -12px; color: red;" href="@Url.Action("History", "Tickets")">
+
+                                            @TempData["CountForleader"]
+                                        </a>
+
+
+                                    </li>
+                                }
+                            }
+
+            
+
+
+                        }
+
+                        if (User.IsInRole("loadopration"))
+                        {
+
+                            <li style="margin-left: -23px; ">@Html.ActionLink("Tickets", "Index", "Tickets")</li>
+
+                            <li style=" color: white; float: right; margin-top: 16px; margin-left: 922px; " class="glyphicon glyphicon-comment">
+                                <a style=" margin-top: -35px; margin-left: -11px; color: red;" href="@Url.Action("History", "Tickets")">
+
+                                  
+
+                                    @TempData["CountForOpration"]
+                                </a>
+
+
+                            </li>
+                        }
+
+                        <li>@Html.ActionLink("logout", "logout", "login")</li>
+                    }
+
+                    <li>@Html.ActionLink("Login", "Create", "login")</li>
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

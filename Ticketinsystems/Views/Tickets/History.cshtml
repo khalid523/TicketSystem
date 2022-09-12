@@ -1,0 +1,128 @@
+﻿@model IEnumerable<businesslogic.Dto.HistoryDto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            ProjectName
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (User.IsInRole("loadopration"))
+            {
+                <th>
+                    Action
+                </th>
+            }
+        }
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        if (item.IsUrgent == true)
+        {
+            <tr style="background-color:red;color:white;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Projects.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @if (item.EscLeader == true)
+                    {
+
+                        @Html.Hidden("EscalationToLeader", "EscalationToLeader", new { id = item.Id })
+                        <span>The Ticket has been already Transfer To Leader </span>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("EscalationToLeader", "EscalationToLeader", new { id = item.Id })
+
+                    }
+
+                </td>
+            </tr>
+        }
+        else
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Projects.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("loadopration"))
+                    {
+
+            <td>
+                @if (item.EscLeader == true)
+                {
+                    @Html.Hidden("EscalationToLeader", "EscalationToLeader", new { id = item.Id })
+                    <span>The Ticket has been already Transfer To Leader </span>
+
+
+
+                }
+                else
+                {
+                    @Html.ActionLink("EscalationToLeader", "EscalationToLeader", new { id = item.Id })
+
+                }
+
+            </td>
+
+
+
+                    }
+                }
+            </tr>
+        }
+    }
+
+</table>
+@if (ViewBag.MessagealretForEscalationLeader != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.MessagealretForEscalationLeader");
+            };
+    </script>
+
+}

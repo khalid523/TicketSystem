@@ -1,0 +1,91 @@
+﻿@model businesslogic.Dto.UserRoleDto
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>UserRoleDto</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group" hidden>
+        @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RoleId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RoleName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RoleName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <tr>
+                <th>
+                    Selection
+                </th>
+
+                <th>
+                    Permissions
+                </th>
+
+            </tr>
+            @foreach (var item in ViewBag.permissionList)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="permissionList" value="@item.Id" />
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="col-md-10" style="float:left">
+        @Html.ListBox("PermissionList", (MultiSelectList)ViewBag.permissionListspecific, new { @class = "form-control", disabled = "disabled" })
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+  
+    var array = @Html.Raw(Json.Encode(@ViewBag.permissionListspecific));
+
+    //var ddl = $("#permissionList").val(array);
+
+    //alert(array);
+    $("input[type='checkbox']").val(array);
+    //$("input[type='checkbox']").prop('checked', array);
+
+</script>

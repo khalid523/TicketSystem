@@ -1,0 +1,172 @@
+﻿@model  IEnumerable<businesslogic.Dto.TicketsDto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("addTicket"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <p style=" float: right;">
+            @Html.ActionLink("urgent", "urgent")
+        </p>
+    }
+}
+
+
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Projects.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descriptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+<tr>
+
+   
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Projects.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descriptions)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status)
+    </td>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+
+        if (User.IsInRole("EditTicket"))
+        {
+<td>
+    @Html.ActionLink("pullnow", "pullnow", new { id = item.Id });
+    @{
+
+        if (item.AssgintoId.HasValue)
+        {
+            var a = ViewBag.userId;
+            var userId2 = Convert.ToInt32(a);
+            if (item.AssgintoId == userId2 || item.Status == Ticketinsystems.data.Status.Pendeing)
+            {
+                @Html.ActionLink("Done", "Done", new { id = item.Id })
+
+
+                if (User.IsInRole(" EmployeePull"))
+                {
+
+                    @Html.ActionLink("Reject", "Reject", new { id = item.Id })
+                }
+
+
+            }
+        }
+    }
+
+</td>
+
+        }
+        if (User.IsInRole("Dev"))
+        {
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            </td>
+
+        }
+
+
+
+
+        if (User.IsInRole("addTicket"))
+        {
+            <td>
+                @if (item.Esc == true)
+                {
+                    @Html.Hidden("escalation", "escalation", new { id = item.Id })
+                    <span>The Ticket has been already Transfer To Opration Manger </span>
+
+                }
+
+
+                else
+                {
+                    @Html.ActionLink("escalation", "escalation", new { id = item.Id })
+                }
+
+            </td>
+
+
+        }
+
+        if (User.IsInRole("loadopration"))
+        {
+
+
+
+        }
+
+
+    }
+
+</tr>
+
+    }
+
+</table>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+
+}
+@if (ViewBag.MessageForDeleteDepartment != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.MessageForDeleteDepartment");
+            };
+    </script>
+
+}
+@if (ViewBag.MessagealretForEscalation != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.MessagealretForEscalation");
+            };
+    </script>
+
+}
+
+
