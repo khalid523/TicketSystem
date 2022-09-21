@@ -16,7 +16,6 @@ namespace Ticketinsystems.Controllers
         private readonly IUserRole userRole;
         private readonly IpermissionsService ipermissionsService;
         private readonly IPermission_UserRoleService permission_UserRoleService;
-
         public UserRoleController(IUserRole _userRole,IpermissionsService _ipermissionsService, IPermission_UserRoleService _permission_UserRoleService )
         {
             userRole = _userRole;
@@ -52,8 +51,6 @@ namespace Ticketinsystems.Controllers
             userRole.Delete(Id);
             return RedirectToAction("Index");
         }
-
-
         [HttpGet]
         public ActionResult Edit(int Id)
         {
@@ -61,8 +58,6 @@ namespace Ticketinsystems.Controllers
             ViewBag.permissionListspecific = new MultiSelectList(permission_UserRoleService.Load().Where(i => i.userRoleId == Id).Select(p=>p.Permissions.Name).ToList());
             userRole.Edit(Id);
             return View("Edit", userRole.Edit(Id));
-
-
         }
        
         [HttpPost]

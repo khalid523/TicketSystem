@@ -33,8 +33,6 @@ namespace businesslogic
             container.RegisterType<IRepositoryEmpolyee, RepositoryEmpolyee>();
             container.RegisterType<IRepositoryUser, RepositoryUser>();
             container.RegisterType<IRepositoryHistory, RepositoryHistory>();
-           
-
             container.RegisterType<IRepositoryProject, RepositoryProject>();
             container.RegisterType<IPmService, PmService>();
             container.RegisterType<IRepository<ProjectMember>, Repository<ProjectMember>>();

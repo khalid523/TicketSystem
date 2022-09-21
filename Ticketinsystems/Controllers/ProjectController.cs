@@ -17,8 +17,6 @@ namespace Ticketinsystems.Controllers
    
         private readonly IProjectService projectService;
         private readonly IPmService pmService;
-        
-
         public ProjectController(IProjectService _projectService, IPmService _pmService )
         {
             this.projectService = _projectService;
@@ -105,13 +103,10 @@ namespace Ticketinsystems.Controllers
         [HttpPost]
         public ActionResult Update(ProjectsDto projectsDto, int[] EmployeeName)
         {
-
             projectService.update(projectsDto);
             List<ProjectsDto> li = new List<ProjectsDto>();
             li = projectService.Load();
-
             return Json(li, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

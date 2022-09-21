@@ -11,12 +11,10 @@ namespace Ticketinsystems.Controllers
 {
     public class UsersController : Controller
     {
-        
         private readonly IUserService userService;
         public UsersController(IUserService _userService)
         {
             userService = _userService;
-
         }
         // ticktes and project one to many 
         // GET: Users

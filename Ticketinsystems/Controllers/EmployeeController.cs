@@ -23,7 +23,6 @@ namespace Ticketinsystems.Controllers
         private readonly IProjectService projectService;
         private readonly IUserRole userRole;
         private readonly IDepartmentService departmentService;
-
         public EmployeeController(IEmpolyeeServices _empolyeeServices, IUserService _userService,IPmService _pmService,IProjectService _projectService,IUserRole _userRole,IDepartmentService _departmentService)
         {
             empolyeeServices = _empolyeeServices;

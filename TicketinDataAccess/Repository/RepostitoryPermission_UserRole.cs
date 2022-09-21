@@ -15,7 +15,7 @@ namespace TicketinDataAccess.Repository
         public RepostitoryPermission_UserRole(TicketinContext _context)
         {
 
-            this.context = context;
+            //this.context = context;
             context = _context;
         }
 

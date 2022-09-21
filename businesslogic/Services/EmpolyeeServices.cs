@@ -21,7 +21,6 @@ namespace businesslogic.Services
         private readonly IRepository<ProjectMember> repositoryPM;
         private readonly IRepository<Users> repositoryUser;
         private readonly IRepository<Tickets> repositoryTickets;
-
         public EmpolyeeServices(IRepository<Employee> _repository, IRepositoryEmpolyee _repositoryEmpolyee,IPmService _pmService , IRepository<ProjectMember> _repositoryPM, IRepository<Users> _repositoryUser, IRepository<Tickets> _repositoryTickets)
         {
             this.repository = _repository;

@@ -14,7 +14,7 @@ namespace TicketinDataAccess.Repository
         public RepositoryClient(TicketinContext _context)
         {
 
-            this.context = context;
+           
             context = _context;
         }
 

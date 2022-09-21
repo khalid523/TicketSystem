@@ -16,7 +16,6 @@ namespace businesslogic.Services
         {
             repositoryPermission = _repositoryPermission;
         }
-
         public List<permissionsDto> Load()
         {
 

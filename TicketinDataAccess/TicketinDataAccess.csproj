@@ -137,6 +137,10 @@
     <Compile Include="Migrations\202208300733027_adadq.designer.cs">
       <DependentUpon>202208300733027_adadq.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209140551332_asdfcvxx.cs" />
+    <Compile Include="Migrations\202209140551332_asdfcvxx.designer.cs">
+      <DependentUpon>202209140551332_asdfcvxx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepostitoryPermission_UserRole.cs" />
@@ -218,6 +222,9 @@
     <EmbeddedResource Include="Migrations\202208300733027_adadq.resx">
       <DependentUpon>202208300733027_adadq.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209140551332_asdfcvxx.resx">
+      <DependentUpon>202209140551332_asdfcvxx.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\accordion.css" />
@@ -266,6 +273,9 @@
     <Content Include="Scripts\jquery-2.0.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.13.2.js" />
     <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

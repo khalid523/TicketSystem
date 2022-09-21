@@ -15,7 +15,7 @@ namespace TicketinDataAccess.Repository
         public RepositoryTickets(TicketinContext _context)
         {
 
-            this.context = context;
+            //this.context = context;
             context = _context;
         }
         public List<Tickets> GetALLTickets()

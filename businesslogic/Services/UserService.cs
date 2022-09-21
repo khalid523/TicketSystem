@@ -23,13 +23,11 @@ namespace businesslogic.Services
         private readonly IRepositoryUser repositoryUser;
 
         public List<UsersDato> LoadAll()
-        {
-
+        { 
             List<UsersDato> liDeto = new List<UsersDato>();
             List<Users> liusers = repositoryUser.GetALL().Where(x => x.isDelete == false).ToList();
             foreach (var item in liusers)
-            {
-                
+            {  
                UsersDato usersDato = new UsersDato();
                 usersDato.Role = new UserRoleDto();
                 usersDato.Name = item.Name;
@@ -42,7 +40,6 @@ namespace businesslogic.Services
                 liDeto.Add(usersDato);
             }
             return liDeto;
-
         }
         public void Insert(UsersDato user)
         {

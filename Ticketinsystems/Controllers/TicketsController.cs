@@ -8,8 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using Ticketinsystems.data;
 
-
-
 namespace Ticketinsystems.Controllers
 {
     public class TicketsController : Controller
@@ -22,7 +20,6 @@ namespace Ticketinsystems.Controllers
         private readonly IPmService pmService;
         private readonly IClientService clientService;
         private readonly IHistoryService historyService;
-
         public TicketsController(ITicketService _ticketService,IEmpolyeeServices _empolyeeServices,IUserService _userService,IProjectService _projectService, IPmService _pmService,IClientService _clientService,IHistoryService _historyService)
         {
             ticketService = _ticketService;
@@ -53,8 +50,6 @@ namespace Ticketinsystems.Controllers
             return View("Index", ticketService.ticketsDtos(userId));
 
         }
-
-
         public ActionResult History()
         {
             int? userId = null;

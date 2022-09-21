@@ -12,6 +12,9 @@ namespace businesslogic.Services
 {
     public class DepartmentService: IDepartmentService
     {
+        
+        //Repository<Department> repository = new Repository<Department>();
+        //Repository<Employee> repositoryEmp = new Repository<Employee>();
         private readonly IRepository<Department> repository;
         private readonly IRepository<Employee> repositoryEmp;
         private readonly IEmpolyeeServices empolyeeServices;
@@ -22,6 +25,17 @@ namespace businesslogic.Services
             this.empolyeeServices = _empolyeeServices;
             this.repositoryEmp = _repositoryEmp;
         }
+
+        ////private readonly IRepository<Department> repository;
+        ////private readonly IRepository<Employee> repositoryEmp;
+        //private readonly IEmpolyeeServices empolyeeServices;
+
+        //public DepartmentService(/*IRepository<Department> _repository, IRepository<Employee> _repositoryEmp,*/ IEmpolyeeServices _empolyeeServices)
+        //{
+        //    //this.repository = _repository;
+        //    this.empolyeeServices = _empolyeeServices;
+        //    //this.repositoryEmp = _repositoryEmp;
+        //}
 
         public List<DepartmentDto> Load()
         {

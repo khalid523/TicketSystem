@@ -86,7 +86,6 @@ namespace businesslogic.Services
             }
             return (liDeto);
         }
-
         public void Insert(ClientDto clientDto, int[] projectsId, int RoleId)
         {
             Users users = new Users();

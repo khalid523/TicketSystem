@@ -10,7 +10,6 @@ namespace businesslogic.Services
 {
    public interface IClientService
     {
-
         List<ClientDto> ClientDtos();
         void Insert(ClientDto clientDto, int[] projectsId, int RoleId);
         void Delete(int Id);

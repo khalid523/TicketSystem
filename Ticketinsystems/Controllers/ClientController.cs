@@ -38,7 +38,6 @@ namespace Ticketinsystems.Controllers
             li = clientService.ClientDtos();
             return View("Index", li);
         }
-
         public ActionResult Create()
         {
             ViewBag.UserId = new SelectList(clientService.ClientDtos(), "Id", "Name");
@@ -55,7 +54,6 @@ namespace Ticketinsystems.Controllers
             ViewBag.projectsId = new MultiSelectList(projectService.Load(), "Id", "Name");
             ViewBag.RoleId = new SelectList(userRole.Load(), "RoleId", "RoleName");
             var useress = clientService.ClientDtos().Where(u => u.Email == clientDto.Email).FirstOrDefault();
-          
             if (useress == null)
             {
                 clientService.Insert(clientDto, projectsId, RoleId);

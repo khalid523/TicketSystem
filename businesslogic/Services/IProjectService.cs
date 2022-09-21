@@ -15,7 +15,6 @@ namespace businesslogic.Services
         void Delete(int Id);
         ProjectsDto Edit(int Id);
         void update(ProjectsDto projectsDto);
-
         List<ProjectMemberDto> LoadAll();
         ProjectsDto load1(int Id);
 

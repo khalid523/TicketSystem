@@ -8,5 +8,6 @@ namespace TicketinDataAccess
 {
     public class Class1
     {
+
     }
 }

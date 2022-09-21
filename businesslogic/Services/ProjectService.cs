@@ -73,8 +73,6 @@ namespace businesslogic.Services
             var UserIdEmpolyee = repositoryEmployee.LoadAll().Where(c => c.projectsId == clientProjectId).Select(c => c.UserId).ToList();
             var HistoryRelation = repositoryHistory.LoadAll().Where(c => c.ProjectsId == clientProjectId).Select(c => c.Id).ToList();
 
-
-
             foreach (var item in clientId)
             {
                 Client client = new Client();

@@ -15,8 +15,6 @@ namespace Ticketinsystems.Controllers
         [Authorize(Roles = "User")]
         public ActionResult UserArea()
         {
-          
-
            return View();
         }
         [Authorize(Roles = "Admin")]

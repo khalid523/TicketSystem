@@ -13,7 +13,7 @@ namespace TicketinDataAccess.Repository
         private readonly TicketinContext context;
         public RepositoryPM(TicketinContext _context)
         {
-            this.context = context;
+           
             context = _context;
         }
 

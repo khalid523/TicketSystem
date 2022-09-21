@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketinDataAccess", "Ticke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "businesslogic", "businesslogic\businesslogic.csproj", "{6614628B-E119-4D27-B26B-D15AFAE82E02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{8F92F573-C001-4C98-AC3E-3B0270C54E54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6614628B-E119-4D27-B26B-D15AFAE82E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6614628B-E119-4D27-B26B-D15AFAE82E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6614628B-E119-4D27-B26B-D15AFAE82E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F92F573-C001-4C98-AC3E-3B0270C54E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F92F573-C001-4C98-AC3E-3B0270C54E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F92F573-C001-4C98-AC3E-3B0270C54E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F92F573-C001-4C98-AC3E-3B0270C54E54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

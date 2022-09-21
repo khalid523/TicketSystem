@@ -1,20 +1,18 @@
 ﻿using businesslogic.Dto;
 using businesslogic.Enum;
-using businesslogic.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using TicketinDataAccess.Entity.data;
 using TicketinDataAccess.Repository;
 using Ticketinsystems.data;
 
 namespace businesslogic.Services
 {
-    public class TicketService: ITicketService
+    public class TicketService : ITicketService
     {
-        public TicketService(IRepositoryEmpolyee _repositoryEmpolyee, IRepository<ProjectMember> _repositoryPM, IRepositoryClient _repositoryClient, IRepository<Tickets> _repository, IRepositoryTickets _repositoryTicketss,IUserService _userService, IRepository<History>  _repositoryhistory, IRepository<Client> _repositoryClients, IRepository<History> _repositoryHistory)
+        public TicketService(IRepositoryEmpolyee _repositoryEmpolyee, IRepository<ProjectMember> _repositoryPM, IRepositoryClient _repositoryClient, IRepository<Tickets> _repository, IRepositoryTickets _repositoryTicketss, IUserService _userService, IRepository<History> _repositoryhistory, IRepository<Client> _repositoryClients, IRepository<History> _repositoryHistory)
         {
             repositoryEmpolyee = _repositoryEmpolyee;
             repositoryPM = _repositoryPM;
@@ -25,10 +23,7 @@ namespace businesslogic.Services
             repositoryClients = _repositoryClients;
             repositoryHistory = _repositoryHistory;
             repository = _repository;
-
-
         }
-
         TicketinContext db = new TicketinContext();
         private readonly IRepository<Employee> repositoryEmp;
         private readonly IRepositoryEmpolyee repositoryEmpolyee;
@@ -40,7 +35,7 @@ namespace businesslogic.Services
         private readonly IRepository<Client> repositoryClients;
         private readonly IRepository<History> repositoryHistory;
         private readonly IRepository<Tickets> repository;
-        public void Insert(TicketsDto ticketsDto, int ProjectsId, int userId )
+        public void Insert(TicketsDto ticketsDto, int ProjectsId, int userId)
         {
             ticketsDto.Status = Status.waitingforPa.ToString();
             ticketsDto.ProjectsId = ProjectsId;
@@ -51,21 +46,6 @@ namespace businesslogic.Services
             tickets.UserId = userId;
             repository.Insert(tickets);
         }
-
-        //public void Delete(int Id)
-        //{
-        //    Tickets tickets = db.tickets.Find(Id);
-        //    db.tickets.Remove(tickets);
-        //    db.SaveChanges();
-        //}
-
-
-        //public Tickets Edit(int Id)
-        //{
-        //    Tickets tickets = new Tickets();
-        //    tickets = db.tickets.Find(Id);
-        //    return tickets;
-        //}
         public void update(Tickets T)
         {
             db.tickets.Attach(T);
@@ -82,7 +62,7 @@ namespace businesslogic.Services
             employee = repositoryEmpolyee.GetAllEmp().FirstOrDefault(x => x.UserId == userId);
             var projectForEmpolye = repositoryPM.LoadAll().Where(p => p.UserId == userId).Select(P => P.Projects).ToList();
             client = repositoryClient.GetALLClient().Where(x => x.UserId == userId).FirstOrDefault();
-            var tickets =repositoryTickets.GetALLTickets();
+            var tickets = repositoryTickets.GetALLTickets();
 
             if (employee != null)
             {
@@ -125,10 +105,10 @@ namespace businesslogic.Services
                     {
                         var projectForEmpolyes = repositoryPM.LoadAll().Where(p => p.UserId == userId).Select(P => P.ProjectsId).ToList();
                         var TIcketsForDev = from t1 in repository.LoadAll()
-                                 join pe in repositoryPM.LoadAll()
-                                 on t1.ProjectsId equals pe.ProjectsId
-                                 where pe.UserId == userId && (t1.Status == Status.waitingforDev.ToString() || (t1.AssgintoId == userId && t1.Status == Status.Pendeing.ToString()))
-                                 select t1;
+                                            join pe in repositoryPM.LoadAll()
+                                            on t1.ProjectsId equals pe.ProjectsId
+                                            where pe.UserId == userId && (t1.Status == Status.waitingforDev.ToString() || (t1.AssgintoId == userId && t1.Status == Status.Pendeing.ToString()))
+                                            select t1;
                         List<TicketsDto> liticketsDtosDev = new List<TicketsDto>();
                         List<Tickets> liticketsDev = TIcketsForDev.ToList();
                         foreach (var item in liticketsDev)
@@ -157,10 +137,10 @@ namespace businesslogic.Services
 
                         var projectForEmpolyer = repositoryPM.LoadAll().Where(p => p.UserId == userId).Select(P => P.ProjectsId).ToList();
                         var TicketsForOManger = from t1 in repository.LoadAll()
-                                 join pe in repositoryPM.LoadAll()
-                                 on t1.ProjectsId equals pe.ProjectsId
-                                 where pe.UserId == userId 
-                                 select t1;
+                                                join pe in repositoryPM.LoadAll()
+                                                on t1.ProjectsId equals pe.ProjectsId
+                                                where pe.UserId == userId
+                                                select t1;
 
                         List<TicketsDto> liticketsDtosOM = new List<TicketsDto>();
                         List<Tickets> liticketsOM = TicketsForOManger.ToList();
@@ -188,7 +168,7 @@ namespace businesslogic.Services
                 }
                 else
                 {
-                    List<Tickets>  liticketsElse = tickets.Where(x => x.UserId == userId).ToList();
+                    List<Tickets> liticketsElse = tickets.Where(x => x.UserId == userId).ToList();
                     List<TicketsDto> liticketsDtosElse = new List<TicketsDto>();
                     foreach (var item in liticketsElse)
                     {
@@ -208,7 +188,7 @@ namespace businesslogic.Services
                         liticketsDtosElse.Add(ticketsDto);
                     }
                     return liticketsDtosElse;
-                   
+
                 }
             }
             else if (client != null)
@@ -267,31 +247,31 @@ namespace businesslogic.Services
         }
 
 
-        public void Done(TicketsDto ticketsDto, int Id,int userId)
+        public void Done(TicketsDto ticketsDto, int Id, int userId)
         {
-                var UserRoleId = userService.LoadAll().Where(u => u.Id == userId).Select(u => u.RoleId).ToList();
-                Employee employee = new Employee();
-                employee = repositoryEmpolyee.GetAllEmp().FirstOrDefault(x => x.UserId == userId);
+            var UserRoleId = userService.LoadAll().Where(u => u.Id == userId).Select(u => u.RoleId).ToList();
+            Employee employee = new Employee();
+            employee = repositoryEmpolyee.GetAllEmp().FirstOrDefault(x => x.UserId == userId);
 
-                if (employee.department.Name == "pa")
-                {
-                    var xx = (from t1 in repository.LoadAll() where t1.Id == Id select t1).SingleOrDefault();
-                    xx.Status = Status.waitingforDev.ToString();
-                    repository.Update(xx);
-                }
-                else if (employee.department.Name == "Dev")
-                {
-                    var xx = (from t1 in repository.LoadAll() where t1.Id == Id select t1).SingleOrDefault();
-                    xx.Status = Status.Done.ToString();
-                    repository.Update(xx);
+            if (employee.department.Name == "pa")
+            {
+                var xx = (from t1 in repository.LoadAll() where t1.Id == Id select t1).SingleOrDefault();
+                xx.Status = Status.waitingforDev.ToString();
+                repository.Update(xx);
+            }
+            else if (employee.department.Name == "Dev")
+            {
+                var xx = (from t1 in repository.LoadAll() where t1.Id == Id select t1).SingleOrDefault();
+                xx.Status = Status.Done.ToString();
+                repository.Update(xx);
 
-                }
+            }
 
         }
         public void Pull(TicketsDto ticketsDto, int userId, int Id)
         {
 
-            var UserRoleId =userService.LoadAll().Where(u => u.Id == userId).Select(u => u.RoleId).ToList();
+            var UserRoleId = userService.LoadAll().Where(u => u.Id == userId).Select(u => u.RoleId).ToList();
 
             Employee employee = new Employee();
             employee = repositoryEmpolyee.GetALLD().FirstOrDefault(x => x.UserId == userId);
@@ -314,17 +294,17 @@ namespace businesslogic.Services
             }
         }
 
-        public void urgent(HistoryDto historyDto, int ProjectsId,string ProjectName)
+        public void urgent(HistoryDto historyDto, int ProjectsId, string ProjectName)
         {
 
             historyDto.Date = DateTime.Now;
             historyDto.ProjectsId = ProjectsId;
             historyDto.IsUrgent = true;
             historyDto.Status = "WaitingToOpration";
-            
+
 
             History history = new History();
-            history.Date= DateTime.Now;
+            history.Date = DateTime.Now;
             history.ProjectsId = ProjectsId;
             history.Name = ProjectName;
             history.IsUrgent = true;
@@ -335,14 +315,14 @@ namespace businesslogic.Services
 
         public void Reject(TicketsDto ticketsDto, int Id)
         {
-                var Tickets = (from t1 in repository.LoadAll() where t1.Id == Id select t1).SingleOrDefault();
+            var Tickets = (from t1 in repository.LoadAll() where t1.Id == Id select t1).SingleOrDefault();
             Tickets.Status = Status.reject.ToString();
-                repository.Update(Tickets);
+            repository.Update(Tickets);
 
         }
         public void escalation(HistoryDto historyDto, int Id)
         {
-           Tickets tickets= repository.Load(Id);
+            Tickets tickets = repository.Load(Id);
             HistoryDto Hs = new HistoryDto();
             Hs.Projects = new ProjectsDto();
             Hs.Projects.Name = tickets.Projects.Name;
@@ -373,9 +353,6 @@ namespace businesslogic.Services
             history.EscLeader = true;
             history.ProjectsId = history.ProjectsId;
             repositoryhistory.Update(history);
-
-        }
-
-
         }
     }
+}

@@ -22,7 +22,6 @@ namespace businesslogic.Services
 
         public List<HistoryDto> LoadAll()
         {
-
             List<HistoryDto> liDeto = new List<HistoryDto>();
             List<History> liHistory = repositoryHistory.GetALL().ToList();
             foreach (var item in liHistory)
@@ -37,11 +36,9 @@ namespace businesslogic.Services
                 historyDto.Description = item.Description;
                 historyDto.Status = item.Status;
                 historyDto.EscLeader = item.EscLeader;
-
                 liDeto.Add(historyDto);
             }
             return liDeto;
-
         }
     }
 }

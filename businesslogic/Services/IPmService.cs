@@ -9,7 +9,7 @@ namespace businesslogic.Services
 {
     public interface IPmService
     {
-        void Insert(ProjectMemberDto PmDto);
+       void Insert(ProjectMemberDto PmDto);
         IEnumerable<ProjectMemberDto> LoadALl();
         IEnumerable<ProjectMemberDto> LoadALLL();
     }

@@ -115,6 +115,7 @@ function Add() {
 
 function Delete(ID) {
     var ans = confirm("Are you sure you want to delete this Record?");
+  
     if (ans) {
         $.ajax({
             url: "/Department/Delete/" + ID,
@@ -122,7 +123,11 @@ function Delete(ID) {
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             success: function (result) {
-                loadData();
+                if (result.success == true) {
+
+                    loadData();
+                }
+             
             },
             error: function (errormessage) {
                 alert(errormessage.responseText);

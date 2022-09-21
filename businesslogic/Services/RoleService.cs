@@ -14,7 +14,6 @@ namespace businesslogic.Services
         private readonly IRepository<Users> repositoryUsers;
         private readonly IRepository<permissions> repositoryPermission;
         private readonly IRepository<Permission_UserRole> repositoryPermissionUserRole;
-
         public RoleService(IRepository<Users> _repositoryUsers, IRepository<permissions> _repositoryPermission, IRepository<Permission_UserRole> _repositoryPermissionUserRole)
         {
             repositoryUsers = _repositoryUsers;

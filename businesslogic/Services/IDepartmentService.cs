@@ -10,7 +10,6 @@ namespace businesslogic.Services
 {
    public interface IDepartmentService
     {
-
         List<DepartmentDto> Load();
         void Insert(DepartmentDto DeptDto);
         void Delete(int Id);

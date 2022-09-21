@@ -13,7 +13,7 @@ namespace TicketinDataAccess.Repository
         public RepositoryUser(TicketinContext _context)
         {
 
-            this.context = context;
+            //this.context = context;
             context = _context;
         }
 

@@ -14,7 +14,7 @@ namespace TicketinDataAccess.Repository
 
         public RepositoryEmpolyee(TicketinContext _context)
         {
-            this.context = context;
+            
             context = _context;
         }
 

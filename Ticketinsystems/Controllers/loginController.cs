@@ -77,8 +77,8 @@ namespace Ticketinsystems.Controllers
 
             loginDto.Password = encrypt(loginDto.Password);
             var myUser = userService.LoadAll()
-               .FirstOrDefault(u => u.Email == loginDto.Email
-               && u.Password == loginDto.Password &&u.isDelete==false);
+            .FirstOrDefault(u => u.Email == loginDto.Email
+            && u.Password == loginDto.Password &&u.isDelete==false);
             TempData["CountForOpration"] = historyService.LoadAll().Where(h => h.Status == "WaitingToOpration").Count();
             TempData["CountForleader"] = historyService.LoadAll().Where(h => h.Status == "waitingforLeader").Count();
 
@@ -89,6 +89,7 @@ namespace Ticketinsystems.Controllers
                 var Ticket = new FormsAuthenticationTicket(loginDto.Email, true, 3000);
                 string Encrypt =FormsAuthentication.Encrypt(Ticket);
                 var cookie=  new HttpCookie(FormsAuthentication.FormsCookieName, Encrypt);
+                Session["UserIdSession"] = myUser.Id.ToString();
                 var userIdCookie =  new HttpCookie("UserId", myUser.Id.ToString());
                 cookie.Expires = DateTime.Now.AddHours(3000);
                 cookie.HttpOnly = true;

@@ -23,27 +23,22 @@ namespace businesslogic.Services
         {  
                 repository.Insert(new ProjectMember { UserId = PmDto.UserId, ProjectsId = PmDto.ProjectsId });
         }
-
         public IEnumerable<ProjectMemberDto> LoadALl()
         {
             IEnumerable<ProjectMemberDto> Pro = repository.LoadAll().Select(e => new ProjectMemberDto
             {
                 UserId = e.UserId,
                 ProjectsId =e.ProjectsId,                    
-            }) ;
+            });
 
             return Pro;
         }
-
         public IEnumerable<ProjectMemberDto> LoadALLL()
         {
-
             List<ProjectMemberDto> liDeto = new List<ProjectMemberDto>();
             List<ProjectMember> lidPm = repositoryPM.GetALL().ToList();
-
             foreach (var item in lidPm)
             {
-
                 ProjectMemberDto projectMemberDto = new ProjectMemberDto();
                 projectMemberDto.Projects = new ProjectsDto();
                 projectMemberDto.User = new UsersDato();
@@ -57,8 +52,5 @@ namespace businesslogic.Services
             }
             return liDeto;
         }
-      
-  
-
     }
 }
